@@ -87,18 +87,6 @@ type Vulnerability struct {
 	} `json:"items"`
 }
 
-// StatusDeletion ...
-type StatusDeletion struct {
-	ID      string `json:"id"`
-	Deleted bool   `json:"deleted"`
-}
-
-// StatusGeneration ...
-type StatusGeneration struct {
-	ID       string `json:"id"`
-	StackURL string `json:"stack_url"`
-}
-
 // StackDefinition ...
 type StackDefinition struct {
 	Name       string `json:"name"`
@@ -120,12 +108,6 @@ type StackParams struct {
 	Shared               bool   `json:"shared"`
 }
 
-// PaginationParams ...
-type PaginationParams struct {
-	Page    int `url:"page,omitempty"`
-	PerPage int `url:"per_page,omitempty"`
-}
-
 // List ...
 func (s *StacksService) List(params *PaginationParams) (*StacksList, *http.Response, error) {
 	stacksList := new(StacksList)
@@ -143,43 +125,43 @@ func (s *StacksService) Create(params *StackDefinition) (*StatusGeneration, *htt
 }
 
 // Delete ...
-func (s *StacksService) Delete(id string) (*StatusDeletion, *http.Response, error) {
+func (s *StacksService) Delete(stackID string) (*StatusDeletion, *http.Response, error) {
 	status := new(StatusDeletion)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Delete(id).Receive(status, apiError)
+	resp, err := s.sling.New().Delete(stackID).Receive(status, apiError)
 	return status, resp, relevantError(err, *apiError)
 }
 
 // Get ...
-func (s *StacksService) Get(id string) (*Stack, *http.Response, error) {
+func (s *StacksService) Get(stackID string) (*Stack, *http.Response, error) {
 	stack := new(Stack)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Get(id).Receive(stack, apiError)
+	resp, err := s.sling.New().Get(stackID).Receive(stack, apiError)
 	return stack, resp, relevantError(err, *apiError)
 }
 
 // Update ...
-func (s *StacksService) Update(id string, params *StackParams) (*StatusGeneration, *http.Response, error) {
+func (s *StacksService) Update(stackID string, params *StackParams) (*StatusGeneration, *http.Response, error) {
 	status := new(StatusGeneration)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Patch(id).BodyJSON(params).Receive(status, apiError)
+	resp, err := s.sling.New().Patch(stackID).BodyJSON(params).Receive(status, apiError)
 	return status, resp, relevantError(err, *apiError)
 }
 
 // Regenerate ...
-func (s *StacksService) Regenerate(id string) (*StatusGeneration, *http.Response, error) {
+func (s *StacksService) Regenerate(stackID string) (*StatusGeneration, *http.Response, error) {
 	status := new(StatusGeneration)
 	apiError := new(APIError)
-	path := fmt.Sprintf("%s/regenerate", id)
+	path := fmt.Sprintf("%s/regenerate", stackID)
 	resp, err := s.sling.New().Post(path).Receive(status, apiError)
 	return status, resp, relevantError(err, *apiError)
 }
 
 // GetVulnerabilities ...
-func (s *StacksService) GetVulnerabilities(id string, params *PaginationParams) (*Vulnerability, *http.Response, error) {
+func (s *StacksService) GetVulnerabilities(stackID string, params *PaginationParams) (*Vulnerability, *http.Response, error) {
 	vulnerabilities := new(Vulnerability)
 	apiError := new(APIError)
-	path := fmt.Sprintf("%s/vulnerabilities", id)
+	path := fmt.Sprintf("%s/vulnerabilities", stackID)
 	resp, err := s.sling.New().Get(path).QueryStruct(params).Receive(vulnerabilities, apiError)
 	return vulnerabilities, resp, relevantError(err, *apiError)
 }
