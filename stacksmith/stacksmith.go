@@ -10,10 +10,10 @@ const stacksmithAPI = "https://stacksmith.bitnami.com/api/v1/"
 
 // Client is a Stacksmith client for making Stacksmith API requests.
 type Client struct {
-	sling  *sling.Sling
-	Stacks *StacksService
-	Hooks  *HooksService
-	//Discovery  *DiscoveryService
+	sling     *sling.Sling
+	Stacks    *StacksService
+	Hooks     *HooksService
+	Discovery *DiscoveryService
 	//User       *UserService
 }
 
@@ -26,10 +26,10 @@ type APIKeyParam struct {
 func NewClient(apiKey string, httpClient *http.Client) *Client {
 	base := sling.New().Client(httpClient).Base(stacksmithAPI)
 	return &Client{
-		sling:  base,
-		Stacks: newStacksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		Hooks:  newHooksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		//Discovery:  newDiscovery(base.New()),
+		sling:     base,
+		Stacks:    newStacksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
+		Hooks:     newHooksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
+		Discovery: newDiscoveryService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
 		//User:       newUser(base.New()),
 	}
 }

@@ -95,14 +95,14 @@ type StatusGeneration struct {
 
 // StackDefinition ...
 type StackDefinition struct {
-	Name       string `json:"name"`
-	Components []Item `json:"components"`
-	OS         Item   `json:"os"`
-	Kind       string `json:"kind"`
+	Name       string          `json:"name"`
+	Components []ComponentItem `json:"components"`
+	OS         ComponentItem   `json:"os"`
+	Kind       string          `json:"kind"`
 }
 
-// Item ...
-type Item struct {
+// ComponentItem ...
+type ComponentItem struct {
 	ID      string `json:"id"`
 	Version string `json:"version"`
 }
