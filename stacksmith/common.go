@@ -6,12 +6,6 @@ type PaginationParams struct {
 	PerPage int `url:"per_page,omitempty"`
 }
 
-// StatusGeneration ...
-type StatusGeneration struct {
-	ID       string `json:"id"`
-	StackURL string `json:"stack_url"`
-}
-
 // StatusDeletion ...
 type StatusDeletion struct {
 	ID      string `json:"id"`
