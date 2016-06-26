@@ -42,6 +42,11 @@ type Item struct {
 	DependenciesURL string `json:"dependencies_url"`
 }
 
+// Query ...
+type Query struct {
+	Query string `url:"query,omitempty"`
+}
+
 // ComponentsList ...
 func (s *DiscoveryService) ComponentsList(query string) (*ListItem, *http.Response, error) {
 	return getDiscovery(s, "components", query)
@@ -63,9 +68,8 @@ func (s *DiscoveryService) OsesList(query string) (*ListItem, *http.Response, er
 }
 
 func getDiscovery(s *DiscoveryService, path string, query string) (*ListItem, *http.Response, error) {
-	queryAux := struct{ query string }{query: query}
 	componentList := new(ListItem)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Get(path).QueryStruct(queryAux).Receive(componentList, apiError)
+	resp, err := s.sling.New().Get(path).QueryStruct(Query{Query: query}).Receive(componentList, apiError)
 	return componentList, resp, relevantError(err, *apiError)
 }
