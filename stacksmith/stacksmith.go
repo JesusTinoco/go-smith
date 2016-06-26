@@ -14,7 +14,7 @@ type Client struct {
 	Stacks    *StacksService
 	Hooks     *HooksService
 	Discovery *DiscoveryService
-	//User       *UserService
+	User      *UserService
 }
 
 // APIKeyParam ...
@@ -30,6 +30,6 @@ func NewClient(apiKey string, httpClient *http.Client) *Client {
 		Stacks:    newStacksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
 		Hooks:     newHooksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
 		Discovery: newDiscoveryService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		//User:       newUser(base.New()),
+		User:      newUserService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
 	}
 }
