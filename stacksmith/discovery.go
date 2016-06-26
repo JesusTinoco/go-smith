@@ -7,7 +7,7 @@ import (
 	"github.com/dghubble/sling"
 )
 
-// DiscoveryService ...
+// DiscoveryService provides methods for accessing Stacksmith Discovery API endpoints.
 type DiscoveryService struct {
 	sling *sling.Sling
 }
@@ -89,12 +89,14 @@ type RangeParams struct {
 	To   string `url:"to,omitempty"`
 }
 
-// ComponentsList ...
+// ComponentsList List all available components.
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components
 func (s *DiscoveryService) ComponentsList(query string) (*ListItem, *http.Response, error) {
 	return getDiscovery(s, "components", query)
 }
 
-// GetComponent ...
+// GetComponent Retrieve the properties from a components
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id
 func (s *DiscoveryService) GetComponent(componentName string) (*Item, *http.Response, error) {
 	component := new(Item)
 	apiError := new(APIError)
@@ -103,7 +105,8 @@ func (s *DiscoveryService) GetComponent(componentName string) (*Item, *http.Resp
 	return component, resp, relevantError(err, *apiError)
 }
 
-// GetChangelogFrom ...
+// GetChangelogFrom Retrieve the changelog for a component
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id_changelog
 func (s *DiscoveryService) GetChangelogFrom(componentName string,
 	rangeParam *RangeParams, pageParam *PaginationParams) (*Changelog, *http.Response, error) {
 	changelog := new(Changelog)
@@ -113,7 +116,8 @@ func (s *DiscoveryService) GetChangelogFrom(componentName string,
 	return changelog, resp, relevantError(err, *apiError)
 }
 
-// GetDependenciesFrom ...
+// GetDependenciesFrom Retrieve the component ID of the component dependencies
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id_dependencies
 func (s *DiscoveryService) GetDependenciesFrom(componentName string) (*Dependencies, *http.Response, error) {
 	dependencies := new(Dependencies)
 	apiError := new(APIError)
@@ -122,22 +126,26 @@ func (s *DiscoveryService) GetDependenciesFrom(componentName string) (*Dependenc
 	return dependencies, resp, relevantError(err, *apiError)
 }
 
-// ServicesList ...
+// ServicesList List all available components in the services category.
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_services
 func (s *DiscoveryService) ServicesList(query string) (*ListItem, *http.Response, error) {
 	return getDiscovery(s, "services", query)
 }
 
-// RuntimesList ...
+// RuntimesList List all available components in the runtimes category.
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_runtimes
 func (s *DiscoveryService) RuntimesList(query string) (*ListItem, *http.Response, error) {
 	return getDiscovery(s, "runtimes", query)
 }
 
-// OsesList ...
+// OsesList List all available OSes.
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_oses
 func (s *DiscoveryService) OsesList(query string) (*ListItem, *http.Response, error) {
 	return getDiscovery(s, "oses", query)
 }
 
-// KindsList ...
+// KindsList List all available Kinds
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_kinds
 func (s *DiscoveryService) KindsList(pageParams *PaginationParams) (*Kinds, *http.Response, error) {
 	kinds := new(Kinds)
 	apiError := new(APIError)
@@ -145,7 +153,8 @@ func (s *DiscoveryService) KindsList(pageParams *PaginationParams) (*Kinds, *htt
 	return kinds, resp, relevantError(err, *apiError)
 }
 
-// GetKindsFrom ...
+// GetKindsFrom Retrieve the available kinds from a component
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id_kinds
 func (s *DiscoveryService) GetKindsFrom(componentName string,
 	pageParams *PaginationParams) (*Kinds, *http.Response, error) {
 	kinds := new(Kinds)

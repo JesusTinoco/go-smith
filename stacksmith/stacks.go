@@ -7,7 +7,7 @@ import (
 	"github.com/dghubble/sling"
 )
 
-// StacksService ...
+// StacksService provides methods for accessing Stacksmith Stacks API endpoints.
 type StacksService struct {
 	sling *sling.Sling
 }
@@ -114,7 +114,8 @@ type StackParams struct {
 	Shared               bool   `json:"shared"`
 }
 
-// List ...
+// List List all stacks attached to your account.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/get_stacks
 func (s *StacksService) List(params *PaginationParams) (*StacksList, *http.Response, error) {
 	stacksList := new(StacksList)
 	apiError := new(APIError)
@@ -122,7 +123,8 @@ func (s *StacksService) List(params *PaginationParams) (*StacksList, *http.Respo
 	return stacksList, resp, relevantError(err, *apiError)
 }
 
-// Create ...
+// Create Create a stack by specifying the components you need, its kind and its OS.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/post_stacks
 func (s *StacksService) Create(params *StackDefinition) (*StatusGeneration, *http.Response, error) {
 	status := new(StatusGeneration)
 	apiError := new(APIError)
@@ -130,7 +132,8 @@ func (s *StacksService) Create(params *StackDefinition) (*StatusGeneration, *htt
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Delete ...
+// Delete Delete a stack.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/delete_stacks_id
 func (s *StacksService) Delete(stackID string) (*StatusDeletion, *http.Response, error) {
 	status := new(StatusDeletion)
 	apiError := new(APIError)
@@ -138,7 +141,8 @@ func (s *StacksService) Delete(stackID string) (*StatusDeletion, *http.Response,
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Get ...
+// Get Retrieve the properties of a stack, to list the versions of the framework, runtime, and OS generated.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/get_stacks_id
 func (s *StacksService) Get(stackID string) (*Stack, *http.Response, error) {
 	stack := new(Stack)
 	apiError := new(APIError)
@@ -146,7 +150,8 @@ func (s *StacksService) Get(stackID string) (*Stack, *http.Response, error) {
 	return stack, resp, relevantError(err, *apiError)
 }
 
-// Update ...
+// Update Update the properties of an existing stack.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/patch_stacks_id
 func (s *StacksService) Update(stackID string, params *StackParams) (*StatusGeneration, *http.Response, error) {
 	status := new(StatusGeneration)
 	apiError := new(APIError)
@@ -154,7 +159,8 @@ func (s *StacksService) Update(stackID string, params *StackParams) (*StatusGene
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Regenerate ...
+// Regenerate Create a new stack based on the requirements of another, if there are new versions for it's requirements.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/post_stacks_id_regenerate
 func (s *StacksService) Regenerate(stackID string) (*StatusGeneration, *http.Response, error) {
 	status := new(StatusGeneration)
 	apiError := new(APIError)
@@ -163,7 +169,8 @@ func (s *StacksService) Regenerate(stackID string) (*StatusGeneration, *http.Res
 	return status, resp, relevantError(err, *apiError)
 }
 
-// GetVulnerabilities ...
+// GetVulnerabilities Retrieve the list of vulnerabilities affecting a stack.
+// https://stacksmith.bitnami.com/api/v1/#!/Stacks/get_stacks_id_vulnerabilities
 func (s *StacksService) GetVulnerabilities(stackID string, params *PaginationParams) (*Vulnerability, *http.Response, error) {
 	vulnerabilities := new(Vulnerability)
 	apiError := new(APIError)

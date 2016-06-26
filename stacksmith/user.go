@@ -7,7 +7,7 @@ import (
 	"github.com/dghubble/sling"
 )
 
-// UserService ...
+// UserService provides methods for accessing Stacksmith User API endpoints.
 type UserService struct {
 	sling *sling.Sling
 }
@@ -36,7 +36,8 @@ type Channel struct {
 	SlackChannel string `json:"slack_channel"`
 }
 
-// UpdateNotifications ...
+// UpdateNotifications Update your email notification settings
+// https://stacksmith.bitnami.com/api/v1/#!/User/patch_user
 func (s *UserService) UpdateNotifications(params *EmailNotifications) (*EmailNotifications, *http.Response, error) {
 	status := new(EmailNotifications)
 	apiError := new(APIError)
@@ -44,7 +45,8 @@ func (s *UserService) UpdateNotifications(params *EmailNotifications) (*EmailNot
 	return status, resp, relevantError(err, *apiError)
 }
 
-// ListSlackChannels ...
+// ListSlackChannels List all slack channels you have added integrations to.
+// https://stacksmith.bitnami.com/api/v1/#!/User/get_user_slack_channels
 func (s *UserService) ListSlackChannels(params *PaginationParams) (*SlackChannels, *http.Response, error) {
 	slackChannels := new(SlackChannels)
 	apiError := new(APIError)
@@ -52,7 +54,8 @@ func (s *UserService) ListSlackChannels(params *PaginationParams) (*SlackChannel
 	return slackChannels, resp, relevantError(err, *apiError)
 }
 
-// RemoveSlackChannel ...
+// RemoveSlackChannel Remove a Slack channel integration.
+// https://stacksmith.bitnami.com/api/v1/#!/User/delete_user_slack_channels_id
 func (s *UserService) RemoveSlackChannel(slackChannelID string) (*StatusDeletion, *http.Response, error) {
 	status := new(StatusDeletion)
 	apiError := new(APIError)
@@ -61,7 +64,8 @@ func (s *UserService) RemoveSlackChannel(slackChannelID string) (*StatusDeletion
 	return status, resp, relevantError(err, *apiError)
 }
 
-// TestSlackIntegration ...
+// TestSlackIntegration Send a test notification to a Slack channel.
+// https://stacksmith.bitnami.com/api/v1/#!/User/post_user_slack_channels_id_test
 func (s *UserService) TestSlackIntegration(slackChannelID string) (*Channel, *http.Response, error) {
 	channel := new(Channel)
 	apiError := new(APIError)

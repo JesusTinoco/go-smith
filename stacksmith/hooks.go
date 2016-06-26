@@ -7,7 +7,7 @@ import (
 	"github.com/dghubble/sling"
 )
 
-// HooksService ...
+// HooksService provides methods for accessing Stacksmith Stack Hooks API endpoints.
 type HooksService struct {
 	sling *sling.Sling
 }
@@ -55,7 +55,8 @@ type HookParams struct {
 	URL string `json:"url"`
 }
 
-// List ...
+// List List all hooks for this stack.
+// https://stacksmith.bitnami.com/api/v1/#!/Stack_Hooks/get_stacks_stack_id_hooks
 func (s *HooksService) List(stackID string, params *PaginationParams) (*HooksList, *http.Response, error) {
 	hooksList := new(HooksList)
 	apiError := new(APIError)
@@ -64,7 +65,8 @@ func (s *HooksService) List(stackID string, params *PaginationParams) (*HooksLis
 	return hooksList, resp, relevantError(err, *apiError)
 }
 
-// Register ...
+// Register Register a URL as a hook that will be triggered when there are updates for your stacks.
+// https://stacksmith.bitnami.com/api/v1/#!/Stack_Hooks/post_stacks_stack_id_hooks
 func (s *HooksService) Register(stackID string, params *HookParams) (*ResponseGeneration, *http.Response, error) {
 	status := new(ResponseGeneration)
 	apiError := new(APIError)
@@ -73,7 +75,8 @@ func (s *HooksService) Register(stackID string, params *HookParams) (*ResponseGe
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Delete ...
+// Delete Delete a hook
+// https://stacksmith.bitnami.com/api/v1/#!/Stack_Hooks/delete_stacks_stack_id_hooks_id
 func (s *HooksService) Delete(stackID string, hookID string) (*StatusDeletion, *http.Response, error) {
 	status := new(StatusDeletion)
 	apiError := new(APIError)
@@ -82,7 +85,8 @@ func (s *HooksService) Delete(stackID string, hookID string) (*StatusDeletion, *
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Update ...
+// Update Update the URL for a previously registered hook.
+// https://stacksmith.bitnami.com/api/v1/#!/Stack_Hooks/patch_stacks_stack_id_hooks_id
 func (s *HooksService) Update(stackID string, hookID string, params *HookParams) (*ResponseGeneration, *http.Response, error) {
 	status := new(ResponseGeneration)
 	apiError := new(APIError)
@@ -91,7 +95,8 @@ func (s *HooksService) Update(stackID string, hookID string, params *HookParams)
 	return status, resp, relevantError(err, *apiError)
 }
 
-// Test ...
+// Test Send a test payload to the URL endpoint.
+// https://stacksmith.bitnami.com/api/v1/#!/Stack_Hooks/post_stacks_stack_id_hooks_id_test
 func (s *HooksService) Test(stackID string, hookID string) (*TestHook, *http.Response, error) {
 	testHook := new(TestHook)
 	apiError := new(APIError)
