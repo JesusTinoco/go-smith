@@ -24,12 +24,12 @@ type APIKeyParam struct {
 
 // NewClient return a new Client
 func NewClient(apiKey string, httpClient *http.Client) *Client {
-	base := sling.New().Client(httpClient).Base(stacksmithAPI)
+	base := sling.New().Client(httpClient).Base(stacksmithAPI).QueryStruct(APIKeyParam{APIKey: apiKey})
 	return &Client{
 		sling:     base,
-		Stacks:    newStacksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		Hooks:     newHooksService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		Discovery: newDiscoveryService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
-		User:      newUserService(base.New().QueryStruct(APIKeyParam{APIKey: apiKey})),
+		Stacks:    newStacksService(base.New()),
+		Hooks:     newHooksService(base.New()),
+		Discovery: newDiscoveryService(base.New()),
+		User:      newUserService(base.New()),
 	}
 }
