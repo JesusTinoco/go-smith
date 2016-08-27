@@ -1,0 +1,12 @@
+{
+  "name": "My ROR stack",
+  "components": [{
+    "id": "ruby",
+    "version": "latest"
+  }],
+  "os": {
+    "id": "debian",
+    "version": "wheezy"
+  },
+  "flavor": "rails"
+}

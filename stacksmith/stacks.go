@@ -20,9 +20,27 @@ func newStacksService(sling *sling.Sling) *StacksService {
 
 // StacksList ...
 type StacksList struct {
-	TotalEntries int     `json:"total_entries"`
-	TotalPages   int     `json:"total_pages"`
-	Items        []Stack `json:"items"`
+	TotalEntries int `json:"total_entries"`
+	TotalPages   int `json:"total_pages"`
+	Items        []struct {
+		ID                   string `json:"id"`
+		Name                 string `json:"name"`
+		Status               string `json:"status"`
+		GeneratedAt          string `json:"generated_at"`
+		RegeneratedAt        string `json:"regenerated_at"`
+		Outdated             bool   `json:"outdated"`
+		NotificationsEnabled bool   `json:"notifications_enabled"`
+		Vulnerabilities      struct {
+			URL        string `json:"url"`
+			Vulnerable bool   `json:"vulnerable"`
+			Severity   string `json:"severity"`
+		} `json:"vulnerabilities"`
+		Output struct {
+			Dockerfile string `json:"dockerfile"`
+		} `json:"output"`
+		Shared       bool   `json:"shared"`
+		ShareableURL string `json:"shareable_url"`
+	} `json:"items"`
 }
 
 // Stack ...
@@ -32,18 +50,27 @@ type Stack struct {
 	Status               string `json:"status"`
 	GeneratedAt          string `json:"generated_at"`
 	RegeneratedAt        string `json:"regenerated_at"`
-	CanRegenerate        bool   `json:"can_regenerate"`
 	Outdated             bool   `json:"outdated"`
 	NotificationsEnabled bool   `json:"notifications_enabled"`
-	Kind                 string `json:"kind"`
 	Requirements         []struct {
 		ID      string `json:"id"`
 		Version string `json:"version"`
 	} `json:"requirements"`
-	Vulnerabilities []Vulnerability `json:"vulnerabilities"`
-	Components      []Component     `json:"components"`
-	Os              Component       `json:"os"`
-	Output          struct {
+	Vulnerabilities struct {
+		URL        string `json:"url"`
+		Vulnerable bool   `json:"vulnerable"`
+		Severity   string `json:"severity"`
+	} `json:"vulnerabilities"`
+	Flavor struct {
+		ID           string `json:"id"`
+		Name         string `json:"name"`
+		Description  string `json:"description"`
+		Default      bool   `json:"default"`
+		ComponentURL string `json:"component_url"`
+	} `json:"flavor"`
+	Components []Component `json:"components"`
+	Os         Component   `json:"os"`
+	Output     struct {
 		Dockerfile string `json:"dockerfile"`
 	} `json:"output"`
 	Shared       bool   `json:"shared"`
@@ -52,39 +79,41 @@ type Stack struct {
 
 // Component ...
 type Component struct {
-	ID              string          `json:"id"`
-	Name            string          `json:"name"`
-	Branch          string          `json:"branch"`
-	Version         string          `json:"version"`
-	Revision        int             `json:"revision"`
-	Category        string          `json:"category"`
-	Latest          Latest          `json:"latest"`
-	Outdated        bool            `json:"outdated"`
-	Vulnerabilities []Vulnerability `json:"vulnerabilities"`
-}
-
-// Latest ...
-type Latest struct {
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Branch   string `json:"branch"`
 	Version  string `json:"version"`
 	Revision int    `json:"revision"`
+	Checksum string `json:"checksum"`
+	Outdated bool   `json:"outdated"`
+	Category string `json:"category"`
+	Latest   struct {
+		Version  string `json:"version"`
+		Revision int    `json:"revision"`
+	} `json:"latest"`
+	Vulnerabilities struct {
+		Vulnerable bool                `json:"vulnerable"`
+		Severity   string              `json:"severity"`
+		Items      []VulnerabilityItem `json:"items"`
+	} `json:"vulnerabilities"`
 }
 
 // Vulnerability ...
 type Vulnerability struct {
-	Vulnerable   bool   `json:"vulnerable"`
-	Severity     string `json:"severity"`
-	URL          string `json:"url"`
-	TotalEntries int    `json:"total_entries"`
-	TotalPages   int    `json:"total_pages"`
-	Items        []struct {
-		Name     string `json:"name"`
-		Severity string `json:"severity"`
-		Ranges   []struct {
-			Component string `json:"component"`
-			From      string `json:"from"`
-			To        string `json:"to"`
-		} `json:"ranges"`
-	} `json:"items"`
+	TotalEntries int                 `json:"total_entries"`
+	TotalPages   int                 `json:"total_pages"`
+	Items        []VulnerabilityItem `json:"items"`
+}
+
+// VulnerabilityItem ...
+type VulnerabilityItem struct {
+	Name     string `json:"name"`
+	Severity string `json:"severity"`
+	Ranges   []struct {
+		Component string `json:"component"`
+		From      string `json:"from"`
+		To        string `json:"to"`
+	} `json:"ranges"`
 }
 
 // StatusGeneration ...
@@ -98,7 +127,7 @@ type StackDefinition struct {
 	Name       string          `json:"name"`
 	Components []ComponentItem `json:"components"`
 	OS         ComponentItem   `json:"os"`
-	Kind       string          `json:"kind"`
+	Flavor     string          `json:"flavor"`
 }
 
 // ComponentItem ...

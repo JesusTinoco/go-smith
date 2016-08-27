@@ -1,0 +1,165 @@
+{
+  "id": "bzr9nhz",
+  "name": "My ROR stack2",
+  "status": "ready",
+  "generated_at": "2016-06-25T14:44:04.000Z",
+  "regenerated_at": "2016-06-25T14:44:04.000Z",
+  "outdated": true,
+  "notifications_enabled": true,
+  "requirements": [
+    {
+      "id": "ruby",
+      "version": "2.2.3"
+    },
+    {
+      "id": "debian",
+      "version": "latest"
+    }
+  ],
+  "vulnerabilities": {
+    "url": "https://stacksmith.bitnami.com/api/v1/stacks/bzr9nhz/vulnerabilities",
+    "vulnerable": true,
+    "severity": "high"
+  },
+  "flavor": {
+    "id": "rails",
+    "name": "Ruby on Rails",
+    "description": "Dockerfile for running your Ruby on Rails application",
+    "default": false,
+    "component_url": "https://stacksmith.bitnami.com/api/v1/components/ruby"
+  },
+  "components": [
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "branch": "stable",
+      "version": "2.2.3",
+      "revision": 3,
+      "checksum": "ac6a6ae84c695ddc540fcbca14b60273ce607c1464d2f374088ad2834cec0ccb",
+      "outdated": false,
+      "category": "runtime",
+      "latest": {
+        "version": "2.2.3",
+        "revision": 3
+      },
+      "vulnerabilities": {
+        "vulnerable": true,
+        "severity": "high",
+        "items": [
+          {
+            "name": "CVE-2015-7551",
+            "severity": "medium",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.3"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2015-3197",
+            "severity": "low",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.4:1"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-0800",
+            "severity": "high",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.4:3"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-2107",
+            "severity": "high",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.5:0"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-2105",
+            "severity": "low",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.5:0"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-2106",
+            "severity": "low",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.5:0"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-2109",
+            "severity": "low",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.5:0"
+              }
+            ]
+          },
+          {
+            "name": "CVE-2016-2176",
+            "severity": "low",
+            "ranges": [
+              {
+                "component": "ruby",
+                "from": "2.2",
+                "to": "2.2.5:0"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "os": {
+    "id": "debian",
+    "name": "Debian",
+    "branch": "stable",
+    "version": "wheezy",
+    "revision": 7,
+    "checksum": "",
+    "outdated": true,
+    "category": "os",
+    "latest": {
+      "version": "wheezy",
+      "revision": 9
+    },
+    "vulnerabilities": {
+      "vulnerable": false,
+      "severity": "none",
+      "items": []
+    }
+  },
+  "output": {
+    "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/bzr9nhz.dockerfile"
+  },
+  "shareable_url": null,
+  "shared": false
+}

@@ -6,7 +6,7 @@ import (
 	"github.com/dghubble/sling"
 )
 
-const stacksmithAPI = "https://stacksmith.bitnami.com/api/v1/"
+var stacksmithAPI = "https://stacksmith.bitnami.com/api/v1/"
 
 // Client is a Stacksmith client for making Stacksmith API requests.
 type Client struct {

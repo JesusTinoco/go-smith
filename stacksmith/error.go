@@ -21,6 +21,8 @@ func (e APIError) Empty() bool {
 func relevantError(httpError error, apiError APIError) error {
 	if httpError != nil {
 		return httpError
+	} else if apiError.Status != "" {
+		return apiError
 	}
-	return apiError
+	return nil
 }

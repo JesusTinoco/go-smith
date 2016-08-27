@@ -1,0 +1,196 @@
+{
+  "total_entries": 15,
+  "total_pages": 2,
+  "items": [
+    {
+      "id": "nw5bkf3",
+      "name": "Node.js 6.4.0 on Debian",
+      "status": "ready",
+      "generated_at": "2016-08-21T11:23:18.000Z",
+      "regenerated_at": "2016-08-21T11:23:18.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/nw5bkf3/vulnerabilities",
+        "vulnerable": false,
+        "severity": "none"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/nw5bkf3.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "0z9nqu8",
+      "name": "Debian wheezy",
+      "status": "ready",
+      "generated_at": "2016-07-27T14:30:29.000Z",
+      "regenerated_at": "2016-07-27T14:30:29.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/0z9nqu8/vulnerabilities",
+        "vulnerable": false,
+        "severity": "none"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/0z9nqu8.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "5tcf27p",
+      "name": "Ubuntu 14.04",
+      "status": "ready",
+      "generated_at": "2016-07-14T09:58:00.000Z",
+      "regenerated_at": "2016-07-14T09:58:00.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/5tcf27p/vulnerabilities",
+        "vulnerable": false,
+        "severity": "none"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/5tcf27p.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "h678kql",
+      "name": "Go 1.6.2 on Debian",
+      "status": "ready",
+      "generated_at": "2016-07-07T13:11:02.000Z",
+      "regenerated_at": "2016-07-07T13:11:02.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/h678kql/vulnerabilities",
+        "vulnerable": true,
+        "severity": "medium"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/h678kql.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "ne0amif",
+      "name": "Python 3.5.2 on Debian",
+      "status": "ready",
+      "generated_at": "2016-07-07T11:37:15.000Z",
+      "regenerated_at": "2016-07-07T11:37:15.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/ne0amif/vulnerabilities",
+        "vulnerable": false,
+        "severity": "none"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/ne0amif.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "cluen8q",
+      "name": "Java 1.8.0_91 on Debian",
+      "status": "ready",
+      "generated_at": "2016-07-05T16:28:09.000Z",
+      "regenerated_at": "2016-07-05T16:28:09.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/cluen8q/vulnerabilities",
+        "vulnerable": false,
+        "severity": "none"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/cluen8q.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "bzr9nhz",
+      "name": "My ROR stack2",
+      "status": "ready",
+      "generated_at": "2016-06-25T14:44:04.000Z",
+      "regenerated_at": "2016-06-25T14:44:04.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/bzr9nhz/vulnerabilities",
+        "vulnerable": true,
+        "severity": "high"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/bzr9nhz.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "9ag8rx8",
+      "name": "PHP 7.0.7 on Debian",
+      "status": "ready",
+      "generated_at": "2016-05-27T22:48:57.000Z",
+      "regenerated_at": "2016-05-27T22:48:57.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/9ag8rx8/vulnerabilities",
+        "vulnerable": true,
+        "severity": "medium"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/9ag8rx8.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "vxbfm87",
+      "name": "PHP 7.0.7 on Debian",
+      "status": "ready",
+      "generated_at": "2016-05-27T22:48:34.000Z",
+      "regenerated_at": "2016-05-27T22:48:34.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/vxbfm87/vulnerabilities",
+        "vulnerable": true,
+        "severity": "medium"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/vxbfm87.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    },
+    {
+      "id": "6i62li9",
+      "name": "Python 3.5.0 on Debian",
+      "status": "ready",
+      "generated_at": "2016-05-27T22:40:03.000Z",
+      "regenerated_at": "2016-05-27T22:40:03.000Z",
+      "outdated": true,
+      "notifications_enabled": true,
+      "vulnerabilities": {
+        "url": "https://stacksmith.bitnami.com/api/v1/stacks/6i62li9/vulnerabilities",
+        "vulnerable": true,
+        "severity": "medium"
+      },
+      "output": {
+        "dockerfile": "https://stacksmith.bitnami.com/api/v1/stacks/6i62li9.dockerfile"
+      },
+      "shareable_url": null,
+      "shared": false
+    }
+  ]
+}
