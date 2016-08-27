@@ -1,0 +1,94 @@
+{
+  "total_entries": 8,
+  "total_pages": 1,
+  "items": [
+    {
+      "name": "CVE-2015-7551",
+      "severity": "medium",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.3"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2015-3197",
+      "severity": "low",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.4:1"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-0800",
+      "severity": "high",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.4:3"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-2107",
+      "severity": "high",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.5:0"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-2105",
+      "severity": "low",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.5:0"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-2106",
+      "severity": "low",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.5:0"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-2109",
+      "severity": "low",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.5:0"
+        }
+      ]
+    },
+    {
+      "name": "CVE-2016-2176",
+      "severity": "low",
+      "ranges": [
+        {
+          "component": "ruby",
+          "from": "2.2",
+          "to": "2.2.5:0"
+        }
+      ]
+    }
+  ]
+}

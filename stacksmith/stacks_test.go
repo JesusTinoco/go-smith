@@ -133,15 +133,38 @@ func TestStacksService_Regenerate(t *testing.T) {
 
 	responseRecieved, _, err := client.Stacks.Regenerate("stack1")
 	if err != nil {
-		t.Errorf("Stacks.Update returned error: %v", err.Error())
+		t.Errorf("Stacks.Regenerate returned error: %v", err.Error())
 	}
 
 	responseExpected := new(StatusGeneration)
 	json.Unmarshal(response, responseExpected)
 	if !reflect.DeepEqual(responseRecieved, responseExpected) {
-		t.Errorf("Stacks.Update returned %+v, want %+v", responseRecieved, responseExpected)
+		t.Errorf("Stacks.Regenerate returned %+v, want %+v", responseRecieved, responseExpected)
 	}
 }
 
 func TestStacksService_GetVulnerabilities(t *testing.T) {
+	setup()
+	defer teardown()
+
+	vulnerabilities := utils.GetJSON("vulnerabilities")
+
+	mux.HandleFunc("/stacks/stack1/vulnerabilities", func(w http.ResponseWriter, r *http.Request) {
+		testMethod(t, r, "GET")
+		testFormValues(t, r, values{"page": "1", "per_page": "100", "api_key": "my_api_key"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(vulnerabilities)
+	})
+
+	pag := &PaginationParams{Page: 1, PerPage: 100}
+	vulnerabilitiesRecieved, _, err := client.Stacks.GetVulnerabilities("stack1", pag)
+	if err != nil {
+		t.Errorf("Stacks.GetVulnerabilities returned error: %v", err.Error())
+	}
+
+	vulnerabilitiesExpected := new(Vulnerability)
+	json.Unmarshal(vulnerabilities, vulnerabilitiesExpected)
+	if !reflect.DeepEqual(vulnerabilitiesRecieved, vulnerabilitiesExpected) {
+		t.Errorf("Stacks.GetVulnerabilities returned %+v, want %+v", vulnerabilitiesRecieved, vulnerabilitiesExpected)
+	}
 }
