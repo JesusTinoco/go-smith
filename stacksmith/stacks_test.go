@@ -89,6 +89,28 @@ func TestStacksService_Create(t *testing.T) {
 }
 
 func TestStacksService_Delete(t *testing.T) {
+	setup()
+	defer teardown()
+
+	response := utils.GetJSON("delete_response")
+
+	mux.HandleFunc("/stacks/stack1", func(w http.ResponseWriter, r *http.Request) {
+		testMethod(t, r, "DELETE")
+		testFormValues(t, r, values{"api_key": "my_api_key"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(response)
+	})
+
+	responseRecieved, _, err := client.Stacks.Delete("stack1")
+	if err != nil {
+		t.Errorf("Stacks.Delete returned error: %v", err.Error())
+	}
+
+	responseExpected := new(StatusDeletion)
+	json.Unmarshal(response, responseExpected)
+	if !reflect.DeepEqual(responseRecieved, responseExpected) {
+		t.Errorf("Stacks.Delete returned %+v, want %+v", responseRecieved, responseExpected)
+	}
 }
 
 func TestStacksService_Update(t *testing.T) {
