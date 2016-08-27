@@ -1,0 +1,75 @@
+{
+  "items": [
+    {
+      "id": "jetty",
+      "name": "Jetty",
+      "category": "service",
+      "prebuilt": false,
+      "buildpack_default": false,
+      "versions": [
+        {
+          "version": "9.3.11.v20160721",
+          "revision": 0,
+          "branch": "stable",
+          "checksum": "a40ea8926f4a666bd2970a2bebadad291863931c14acad13b05ef896199ef151",
+          "published_at": "2016-07-27T11:36:38.000Z"
+        },
+        {
+          "version": "9.3.10.v20160621",
+          "revision": 1,
+          "branch": "stable",
+          "checksum": "86bb0918c2a4a252e0e9b8aedd89fcb698d702971e3104d1b4ac53661d7331ed",
+          "published_at": "2016-07-08T09:44:52.000Z"
+        },
+        {
+          "version": "9.3.8.v20160314",
+          "revision": 0,
+          "branch": "stable",
+          "checksum": "a84eefa5395d1430ae65c53f55a1dbb9f77cc84bc63d0f721128fd4607730c41",
+          "published_at": "2016-03-17T19:19:07.000Z"
+        },
+        {
+          "version": "9.3.7.v20160115",
+          "revision": 0,
+          "branch": "stable",
+          "checksum": "d14b7a00b7e7ed32ade4baab2fafd00d1ce78cc97108ff8df93ecb7f4d801f55",
+          "published_at": "2016-02-04T17:53:56.000Z"
+        },
+        {
+          "version": "9.3.6.v20151106",
+          "revision": 0,
+          "branch": "stable",
+          "checksum": "ae0034ca330b5a03ba225459501868159951fc7aea4090bef8fd22b5e954a6e0",
+          "published_at": "2016-01-29T12:23:09.000Z"
+        }
+      ],
+      "release_series": [
+        {
+          "version": "9.3",
+          "payload": "~> 9.3.0"
+        }
+      ],
+      "dependencies_url": "https://stacksmith.bitnami.com/api/v1/components/jetty/dependencies",
+      "flavors_url": "https://stacksmith.bitnami.com/api/v1/components/jetty/flavors"
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "category": "os",
+      "prebuilt": false,
+      "buildpack_default": false,
+      "versions": [
+        {
+          "version": "14.04",
+          "revision": 9,
+          "branch": "stable",
+          "checksum": "",
+          "published_at": "2016-08-26T21:21:12.000Z"
+        }
+      ],
+      "release_series": [],
+      "dependencies_url": "https://stacksmith.bitnami.com/api/v1/components/ubuntu/dependencies",
+      "flavors_url": "https://stacksmith.bitnami.com/api/v1/components/ubuntu/flavors"
+    }
+  ]
+}

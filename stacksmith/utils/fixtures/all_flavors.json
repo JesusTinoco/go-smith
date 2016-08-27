@@ -1,0 +1,76 @@
+{
+  "total_entries": 21,
+  "total_pages": 3,
+  "items": [
+    {
+      "id": "postgresql-standalone",
+      "name": "PostgreSQL standalone",
+      "description": "Dockerfile for running a PostgreSQL server",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/postgresql"
+    },
+    {
+      "id": "go-base",
+      "name": "Go base",
+      "description": "Base Dockerfile with the Go runtime and toolchain",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/go"
+    },
+    {
+      "id": "java-base",
+      "name": "Java base",
+      "description": "Base Dockerfile with the Java Runtime Environment",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/java"
+    },
+    {
+      "id": "node-base",
+      "name": "Node base",
+      "description": "Base Dockerfile with the Node.js runtime and toolchain",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/node"
+    },
+    {
+      "id": "express",
+      "name": "ExpressJS",
+      "description": "Dockerfile for running your ExpressJS application",
+      "default": false,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/node"
+    },
+    {
+      "id": "php-base",
+      "name": "PHP base",
+      "description": "Base Dockerfile with the PHP runtime and toolchain",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/php"
+    },
+    {
+      "id": "codeigniter",
+      "name": "CodeIgniter",
+      "description": "Dockerfile for running your CodeIgniter application",
+      "default": false,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/php"
+    },
+    {
+      "id": "symfony",
+      "name": "Symfony 3",
+      "description": "Dockerfile for running your Symfony 3+ application",
+      "default": false,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/php"
+    },
+    {
+      "id": "python-base",
+      "name": "Python base",
+      "description": "Base Dockerfile with the Python runtime and toolchain",
+      "default": true,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/python"
+    },
+    {
+      "id": "django",
+      "name": "Django",
+      "description": "Dockerfile for running your Django application",
+      "default": false,
+      "component_url": "https://stacksmith.bitnami.com/api/v1/components/python"
+    }
+  ]
+}

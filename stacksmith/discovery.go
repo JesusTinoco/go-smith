@@ -18,8 +18,8 @@ func newDiscoveryService(sling *sling.Sling) *DiscoveryService {
 	}
 }
 
-// ListItem ...
-type ListItem struct {
+// ListItems ...
+type ListItems struct {
 	Items []Item `json:"items"`
 }
 
@@ -33,7 +33,7 @@ type Item struct {
 		Revision    int    `json:"revision"`
 		Branch      string `json:"branch"`
 		Checksum    string `json:"checksum"`
-		PublishedAt string `json:"publised_at"`
+		PublishedAt string `json:"published_at"`
 	} `json:"versions"`
 	Prebuilt      bool `json:"prebuilt"`
 	ReleaseSeries []struct {
@@ -43,8 +43,8 @@ type Item struct {
 	DependenciesURL string `json:"dependencies_url"`
 }
 
-// Kinds ...
-type Kinds struct {
+// Flavors ...
+type Flavors struct {
 	TotalEntries int `json:"total_entries"`
 	TotalPages   int `json:"total_pages"`
 	Items        []struct {
@@ -91,7 +91,7 @@ type RangeParams struct {
 
 // ComponentsList List all available components.
 // https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components
-func (s *DiscoveryService) ComponentsList(query string) (*ListItem, *http.Response, error) {
+func (s *DiscoveryService) ComponentsList(query string) (*ListItems, *http.Response, error) {
 	return getDiscovery(s, "components", query)
 }
 
@@ -128,44 +128,44 @@ func (s *DiscoveryService) GetDependenciesFrom(componentName string) (*Dependenc
 
 // ServicesList List all available components in the services category.
 // https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_services
-func (s *DiscoveryService) ServicesList(query string) (*ListItem, *http.Response, error) {
+func (s *DiscoveryService) ServicesList(query string) (*ListItems, *http.Response, error) {
 	return getDiscovery(s, "services", query)
 }
 
 // RuntimesList List all available components in the runtimes category.
 // https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_runtimes
-func (s *DiscoveryService) RuntimesList(query string) (*ListItem, *http.Response, error) {
+func (s *DiscoveryService) RuntimesList(query string) (*ListItems, *http.Response, error) {
 	return getDiscovery(s, "runtimes", query)
 }
 
 // OsesList List all available OSes.
 // https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_oses
-func (s *DiscoveryService) OsesList(query string) (*ListItem, *http.Response, error) {
+func (s *DiscoveryService) OsesList(query string) (*ListItems, *http.Response, error) {
 	return getDiscovery(s, "oses", query)
 }
 
-// KindsList List all available Kinds
-// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_kinds
-func (s *DiscoveryService) KindsList(pageParams *PaginationParams) (*Kinds, *http.Response, error) {
-	kinds := new(Kinds)
+// FlavorsList List all available Flavors
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_flavors
+func (s *DiscoveryService) FlavorsList(pageParams *PaginationParams) (*Flavors, *http.Response, error) {
+	flavors := new(Flavors)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Get("kinds").QueryStruct(pageParams).Receive(kinds, apiError)
-	return kinds, resp, relevantError(err, *apiError)
+	resp, err := s.sling.New().Get("flavors").QueryStruct(pageParams).Receive(flavors, apiError)
+	return flavors, resp, relevantError(err, *apiError)
 }
 
-// GetKindsFrom Retrieve the available kinds from a component
-// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id_kinds
-func (s *DiscoveryService) GetKindsFrom(componentName string,
-	pageParams *PaginationParams) (*Kinds, *http.Response, error) {
-	kinds := new(Kinds)
+// GetFlavorsFrom Retrieve the available kinds from a component
+// https://stacksmith.bitnami.com/api/v1/#!/Discovery/get_components_id_flavors
+func (s *DiscoveryService) GetFlavorsFrom(componentName string,
+	pageParams *PaginationParams) (*Flavors, *http.Response, error) {
+	flavors := new(Flavors)
 	apiError := new(APIError)
-	path := fmt.Sprintf("components/%s/kinds", componentName)
-	resp, err := s.sling.New().Get(path).Receive(kinds, apiError)
-	return kinds, resp, relevantError(err, *apiError)
+	path := fmt.Sprintf("components/%s/flavors", componentName)
+	resp, err := s.sling.New().Get(path).Receive(flavors, apiError)
+	return flavors, resp, relevantError(err, *apiError)
 }
 
-func getDiscovery(s *DiscoveryService, path string, query string) (*ListItem, *http.Response, error) {
-	componentList := new(ListItem)
+func getDiscovery(s *DiscoveryService, path string, query string) (*ListItems, *http.Response, error) {
+	componentList := new(ListItems)
 	apiError := new(APIError)
 	resp, err := s.sling.New().Get(path).QueryStruct(Query{Query: query}).Receive(componentList, apiError)
 	return componentList, resp, relevantError(err, *apiError)
