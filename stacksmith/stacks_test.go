@@ -87,3 +87,39 @@ func TestStacksService_Create(t *testing.T) {
 		t.Errorf("Stacks.Create returned %+v, want %+v", responseRecieved, responseExpected)
 	}
 }
+
+func TestStacksService_Delete(t *testing.T) {
+}
+
+func TestStacksService_Update(t *testing.T) {
+	setup()
+	defer teardown()
+
+	response := utils.GetJSON("stack_response")
+
+	mux.HandleFunc("/stacks/stack1", func(w http.ResponseWriter, r *http.Request) {
+		testMethod(t, r, "PATCH")
+		testFormValues(t, r, values{"api_key": "my_api_key"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(response)
+	})
+
+	requestDefinition := new(StackParams)
+	json.Unmarshal(utils.GetJSON("update_stack_definition"), requestDefinition)
+	responseRecieved, _, err := client.Stacks.Update("stack1", requestDefinition)
+	if err != nil {
+		t.Errorf("Stacks.Update returned error: %v", err.Error())
+	}
+
+	responseExpected := new(StatusGeneration)
+	json.Unmarshal(response, responseExpected)
+	if !reflect.DeepEqual(responseRecieved, responseExpected) {
+		t.Errorf("Stacks.Update returned %+v, want %+v", responseRecieved, responseExpected)
+	}
+}
+
+func TestStacksService_Regenerate(t *testing.T) {
+}
+
+func TestStacksService_GetVulnerabilities(t *testing.T) {
+}
