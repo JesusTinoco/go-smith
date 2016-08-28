@@ -26,4 +26,4 @@ coverage:
 	gocov test ./... | gocov report
 
 goveralls:
-	cd ./stacksmith && goveralls -service=travis-ci
+	cd ./stacksmith && $(HOME)/gopath/bin/goveralls -service=travis-ci
