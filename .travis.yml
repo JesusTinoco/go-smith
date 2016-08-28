@@ -4,6 +4,6 @@ go:
   - 1.6
   - 1.7
   - tip
-install: make init
-script: make check
+install: make get-travis-deps
+script: make travis-check
 after_success: goveralls
