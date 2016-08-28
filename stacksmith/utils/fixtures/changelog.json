@@ -1,0 +1,96 @@
+{
+  "total_entries": 12,
+  "total_pages": 2,
+  "items": [
+    {
+      "version": "1.6.3",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "8fd706186502cebc35bce121d3a176936153782a9ff4a9e4e93eee76c2ed02cc",
+      "published_at": "2016-07-19T16:03:27.000Z",
+      "release_notes": "Go 1.6.3 contains a security fix for the httpoxy vulnerability (CVE-2016-5386).",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.6.2",
+      "revision": 1,
+      "branch": "stable",
+      "checksum": "73f6ebc11da5d2b76044c924090919c08e5c39329bce1b3fcac3854c31625d43",
+      "published_at": "2016-07-07T20:52:18.000Z",
+      "release_notes": "This release contains a fix for the missing doc folder in the installation",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.5.4",
+      "revision": 1,
+      "branch": "stable",
+      "checksum": "7d8751a012a06923f2c50363454ef30d33ee1d23b20f7b8e18ac48834d7f01b2",
+      "published_at": "2016-07-07T20:52:11.000Z",
+      "release_notes": "This release contains a fix for the missing doc folder in the installation",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.4.3",
+      "revision": 1,
+      "branch": "stable",
+      "checksum": "80a5d30ef724f304cc0655ceb70f9b868238cc35ed14e429a5ee74b4a15b145a",
+      "published_at": "2016-07-07T20:52:02.000Z",
+      "release_notes": "This release contains a fix for the missing doc folder in the installation",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.6.2",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "79b828a23b7582197799e775d65501b082d71d589ba6eed7aa3d68cf75b94a19",
+      "published_at": "2016-04-21T09:13:59.000Z",
+      "release_notes": "Go 1.6.2 includes fixes to the compiler, runtime, tools, documentation, and the mime/multipart, net/http, and sort packages.",
+      "release_notes_url": "https://golang.org/doc/devel/release.html#go1.6.minor"
+    },
+    {
+      "version": "1.6.1",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "0bdfd477578cd0c035674b5edfa7eebfd08602758b93fcb8b868b13128e7c9f0",
+      "published_at": "2016-04-15T03:20:53.000Z",
+      "release_notes": "Go 1.6.1 contains a security fix for the crypto libraries to avoid a potential remote denial-of-service attack (CVE-2016-3959).",
+      "release_notes_url": "https://golang.org/doc/devel/release.html#go1.6.minor"
+    },
+    {
+      "version": "1.5.4",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "be3d90a872521a398d400b91cc22798ef2d9a7aaf58d85418bd76f5ae62a6f0a",
+      "published_at": "2016-04-15T03:20:40.000Z",
+      "release_notes": "Go 1.5.3 contains a security fix for the crypto libraries to avoid a potential remote denial-of-service attack (CVE-2016-3959).",
+      "release_notes_url": "https://golang.org/doc/devel/release.html#go1.5.minor"
+    },
+    {
+      "version": "1.6",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "360117038cbe5907f69b3f819b3820e998be8c24a2ab18bb714fa6bf183e585d",
+      "published_at": "2016-02-18T16:50:33.000Z",
+      "release_notes": "The stable release for Go 1.6 includes some fixes as well as other enhancements and changes. Some of the most notable changes include:\r\n- Support for HTTP/2 in the net/http package.\r\n- \"vendor\" feature is now enabled by default.\r\n- The runtime has added lightweight, best-effort detection of concurrent misuse of maps. Also, it also changed how it prints program-ending panics.",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.5.3",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "4a6b338ac861bbec4f3334e272d3871d6d08e73c6c616afcc137d9519b0f705c",
+      "published_at": "2016-01-14T12:27:20.000Z",
+      "release_notes": "Go version 1.5.3 is a security release. It fixes an issue that can affect RSA computations in crypto/rsa, which is used by crypto/tls. TLS servers on 32-bit systems could plausibly leak their RSA private key due to this issue. Other protocol implementations that create many RSA signatures could also be impacted in the same way. On 64-bit systems, the frequency of the bug is so low (less than one in 2^50) that it would be very difficult to exploit. Nonetheless, everyone is strongly encouraged to upgrade.",
+      "release_notes_url": null
+    },
+    {
+      "version": "1.5.2",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "788b7b25b4bb9664d0cfea2b5e3e0bbb4aa045824d2246ede1ab12cc1923a1e7",
+      "published_at": "2015-12-18T20:07:19.000Z",
+      "release_notes": "Go version 1.5.2 includes bug fixes to the compiler, linker, and the mine/multipart, net, and runtime packages.",
+      "release_notes_url": null
+    }
+  ]
+}

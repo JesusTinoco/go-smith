@@ -132,3 +132,30 @@ func TestDiscoverService_GetComponent(t *testing.T) {
 		t.Errorf("Discovery.Component returned %+v, want %+v", componentRecieved, componentExpected)
 	}
 }
+
+func TestDiscoveryService_GetChangelogFrom(t *testing.T) {
+	setup()
+	defer teardown()
+
+	changelog := utils.GetJSON("changelog")
+
+	mux.HandleFunc("/components/go/changelog", func(w http.ResponseWriter, r *http.Request) {
+		testMethod(t, r, "GET")
+		testFormValues(t, r, values{"page": "1", "per_page": "100", "api_key": "my_api_key"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(changelog)
+	})
+
+	pag := &PaginationParams{Page: 1, PerPage: 100}
+	rangeParams := &RangeParams{From: "", To: ""}
+	changelogRecieved, _, err := client.Discovery.GetChangelogFrom("go", rangeParams, pag)
+	if err != nil {
+		t.Errorf("Discovery.GetChangelogFrom returned error: %v", err.Error())
+	}
+
+	changelogExpected := new(Changelog)
+	json.Unmarshal(changelog, changelogExpected)
+	if !reflect.DeepEqual(changelogRecieved, changelogExpected) {
+		t.Errorf("Discovery.GetChangelogFrom returned %+v, want %+v", changelogRecieved, changelogExpected)
+	}
+}
