@@ -1,0 +1,10 @@
+language: go
+sudo: false
+go:
+  - 1.6
+  - 1.7
+  - 1.8
+  - tip
+install: make init
+script: make check
+after_success: goveralls
