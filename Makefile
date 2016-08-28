@@ -16,4 +16,4 @@ lint:
 	golint -set_exit_status ./...
 
 goveralls:
-	goveralls -service=travis-ci
+	$HOME/gopath/bin/goveralls -service=travis-ci
