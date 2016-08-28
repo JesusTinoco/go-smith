@@ -1,0 +1,66 @@
+{
+  "id": "apache",
+  "name": "Apache",
+  "category": "runtime",
+  "prebuilt": true,
+  "buildpack_default": false,
+  "versions": [
+    {
+      "version": "2.4.23",
+      "revision": 1,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-08-03T23:06:28.000Z"
+    },
+    {
+      "version": "2.4.20",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": "",
+      "published_at": "2016-06-17T15:27:02.000Z"
+    },
+    {
+      "version": "2.4.17-1",
+      "revision": 3,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-02-18T23:03:06.000Z"
+    },
+    {
+      "version": "2.4.17-0",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-02-18T23:03:06.000Z"
+    },
+    {
+      "version": "2.4.12-4",
+      "revision": 1,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-02-18T23:03:06.000Z"
+    },
+    {
+      "version": "2.4.12-3",
+      "revision": 0,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-02-18T23:03:06.000Z"
+    },
+    {
+      "version": "2.4.12-2",
+      "revision": 2,
+      "branch": "stable",
+      "checksum": null,
+      "published_at": "2016-02-18T23:03:06.000Z"
+    }
+  ],
+  "release_series": [
+    {
+      "version": "2.4",
+      "payload": "~> 2.4.0"
+    }
+  ],
+  "dependencies_url": "https://stacksmith.bitnami.com/api/v1/components/apache/dependencies",
+  "flavors_url": "https://stacksmith.bitnami.com/api/v1/components/apache/flavors"
+}

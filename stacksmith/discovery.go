@@ -160,7 +160,7 @@ func (s *DiscoveryService) GetFlavorsFrom(componentName string,
 	flavors := new(Flavors)
 	apiError := new(APIError)
 	path := fmt.Sprintf("components/%s/flavors", componentName)
-	resp, err := s.sling.New().Get(path).Receive(flavors, apiError)
+	resp, err := s.sling.New().Get(path).QueryStruct(pageParams).Receive(flavors, apiError)
 	return flavors, resp, relevantError(err, *apiError)
 }
 
