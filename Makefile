@@ -6,7 +6,7 @@ get-deps: init
 	go get github.com/axw/gocov/gocov
 
 get-travis-deps: init
-	go get -u github.com/mattn/goveralls
+	go get github.com/mattn/goveralls
 	go get golang.org/x/tools/cmd/cover
 
 check: vet test lint coverage
